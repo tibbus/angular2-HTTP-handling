@@ -13,7 +13,8 @@ export class HeroService {
 
     getHeroes() {
         return this.http.get(this._heroesUrl)
-            .map((res) : Hero[] => res.json())
+            .map((res): Hero[] => res.json())
+            .do(data => console.log(data)) // eyeball results in the console
             .catch(this.handleError);
     }
 
