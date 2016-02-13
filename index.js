@@ -6,10 +6,9 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/src', express.static(__dirname + '/src'));
 app.use('/style', express.static(__dirname + '/style'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/heroes', express.static(__dirname + '/heroes.json'));
 
-//app.use(express.static(__dirname + '/src/dist'));
-
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
